@@ -29,7 +29,7 @@ fn main() -> Result<()> {
         })
         .collect();
 
-    sizes.sort_by(|a, b| b.1.cmp(&a.1));
+    sizes.sort_by_key(|a| std::cmp::Reverse(a.1));
 
     for (name, size) in sizes {
         println!("{:>10}  {}", format_size(size), name);
